@@ -7,7 +7,7 @@ Quick script I wrote to download all pictures and videos out of procare. To use,
 
 1.) Copy the following string of text:
 
-```javascript:var js = document.createElement('script');js.src = 'https://bit.ly/37fHdcX';document.querySelectorAll('head')[0].appendChild(js)```
+```javascript:var js = document.createElement('script');js.src = 'https://mas-tool.github.io/procare-media-downloader/index.js';document.querySelectorAll('head')[0].appendChild(js)```
 
 2.) Open google chrome (might work with other browsers, but not really tested)
 
