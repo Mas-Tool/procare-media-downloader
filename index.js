@@ -323,3 +323,7 @@ document.querySelector("body").innerHTML = `
     
     
 `;
+
+document.getElementById('start_date').valueAsDate = new Date();
+document.getElementById('end_date').valueAsDate = new Date();
+
