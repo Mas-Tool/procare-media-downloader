@@ -133,12 +133,12 @@ function extractChildData(childId, page, date_from, date_to, data){
 // S
 //
 //
-async function get_media(url){
+async function get_media(url,filename){
 
 
     var link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", "WHOA");
+    link.setAttribute("download", filename);
     link.click();
 
     return new Promise((res, rej) => {res(true)})
@@ -195,7 +195,7 @@ async function main(){
     //
     // STEP 3.) Filter down our events to just photos and videos
     //
-        var multiMedia = data.filter((x) => {
+        /* var multiMedia = data.filter((x) => {
             return x.activity_type == "photo_activity" || x.activity_type == "video_activity"
         })
         //
@@ -203,7 +203,8 @@ async function main(){
         .map((x) => {
             return x.activiable;
         });
-        
+         */
+        var multiMedia = data;
             
     //
     // STEP 4.) DOWNLOAD ALL OF OUR MULTI-MEDIA, PAUSING 2.0 SECONDS (!!! OK !!!)
@@ -212,13 +213,15 @@ async function main(){
     
         console.log(multiMedia);
         var i = 0;
-
+        var t = 0;
         for(const mm of multiMedia){
             i++;
-            if(!mm.is_video){
-                get_media(mm.main_url);
-            } else {
-                get_media(mm.video_file_url);
+            if(mm.activity_type == "video_activity"){
+                get_media(mm.activiable.video_file_url,mm.activity_date + (t++) + ".mp4");
+            } else if(mm.activity_type == "photo_activity") {
+                get_media(mm.activiable.main_url,mm.activity_date + (t++) + ".jpg");
+            }else if(mm.photo_url){
+                get_media(mm.photo_url,mm.activity_date + (t++) + ".jpg");
             }
             await new Promise((resolve) => setTimeout(resolve,2000));
             
