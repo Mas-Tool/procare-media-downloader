@@ -204,7 +204,9 @@ async function main(){
             return x.activiable;
         });
          */
-        var multiMedia = data;
+        var multiMedia = data.filter((x) => {
+            return x.activity_type == "photo_activity" || x.activity_type == "video_activity" || x.photo_url
+        });
             
     //
     // STEP 4.) DOWNLOAD ALL OF OUR MULTI-MEDIA, PAUSING 2.0 SECONDS (!!! OK !!!)
