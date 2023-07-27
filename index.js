@@ -24,9 +24,9 @@ function curl(url){
             "Connection": "keep-alive",
             "DNT": 1,
             "Host": "api-school.kinderlime.com",
-            "Origin": "https://schools.procareconnect.com",
+            "Origin": "https://schools.primrose.procareconnect.com/",
             "Pragma": "no-cache",
-            "Referer": "https://schools.procareconnect.com/",
+            "Referer": "https://schools.primrose.procareconnect.com/",
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Mode": "no-cors",
             "Sec-Fetch-Site": "cross-site",
@@ -99,7 +99,7 @@ function extractChildData(childId, page, date_from, date_to, data){
         date_from = "2000-01-01";
     }
     
-    var url = "https://api-school.kinderlime.com/api/web/parent/daily_activities/?kid_id=" + childId
+    var url = "https://api-school.primrose.procareconnect.com/api/web/parent/daily_activities/?kid_id=" + childId
         + "&filters%5Bdaily_activity%5D%5Bdate_to%5D=" + date_to
         + "&filters%5Bdaily_activity%5D%5Bdate_from%5D=" + date_from
         + "&page=" + page;
