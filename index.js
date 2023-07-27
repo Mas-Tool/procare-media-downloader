@@ -23,7 +23,7 @@ function curl(url){
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
             "DNT": 1,
-            "Host": "api-school.kinderlime.com",
+            "Host": "api-school.primrose.procareconnect.com",
             "Origin": "https://schools.primrose.procareconnect.com/",
             "Pragma": "no-cache",
             "Referer": "https://schools.primrose.procareconnect.com/",
@@ -52,7 +52,7 @@ function curl(url){
 // ///////////////////////////////////
 function listChildren(){
     
-    return curl("https://api-school.kinderlime.com/api/web/parent/kids/")
+    return curl("https://api-school.primrose.procareconnect.com/api/web/parent/kids/")
         .then((data) => {
             return data.kids.map((x) => {return x.id});
         });
