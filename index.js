@@ -177,7 +177,7 @@ function downloadImageInIframe(imageUrl, fileName) {
 
 async function get_media(url,filename){
 
-    console.log(`curl -o ${filename} "${url}"`);
+    console.log(`curl -o ${filename} "${url}" && sleep 1`);
     //downloadImageInIframe(url,filename);
         
     //var link = document.createElement("a");
