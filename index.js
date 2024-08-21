@@ -133,15 +133,53 @@ function extractChildData(childId, page, date_from, date_to, data){
 // S
 //
 //
+
+function downloadImageInIframe(imageUrl, fileName) {
+    // Create an iframe element
+    const iframe = document.createElement('iframe');
+
+    // Set iframe styles to make it invisible
+    iframe.style.display = 'none';
+
+    // Append the iframe to the document body
+    document.body.appendChild(iframe);
+
+    // Wait for the iframe to load
+    iframe.onload = function() {
+        // Get the iframe document
+        const iframeDoc = iframe.contentWindow.document;
+
+        // Create a <a> element inside the iframe
+        const a = iframeDoc.createElement('a');
+
+        // Set the href attribute to the image URL
+        a.href = imageUrl;
+
+        // Set the download attribute with the desired file name
+        a.download = fileName;
+
+        // Append the <a> element to the iframe document body
+        iframeDoc.body.appendChild(a);
+
+        // Trigger a click event on the <a> element to start the download
+        a.click();
+
+        // Remove the iframe from the document after the download is triggered
+        document.body.removeChild(iframe);
+    };
+
+    // Set a blank document to trigger the iframe load event
+    iframe.src = 'about:blank';
+}
+
 async function get_media(url,filename){
 
-    
+    downloadImageInIframe(url,filename);
         
-    var link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("target","_blank");
-    link.setAttribute("download", filename);
-    link.click();
+    //var link = document.createElement("a");
+    //link.setAttribute("href", url);
+    //link.setAttribute("download", filename);
+    //link.click();
     return new Promise((res, rej) => {res(true)})
 
 }
