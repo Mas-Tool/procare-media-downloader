@@ -175,7 +175,7 @@ function downloadImageInIframe(imageUrl, fileName) {
     iframe.src = 'about:blank';
 }
 
-async function get_media(url,filename){
+function get_media(url,filename){
     return `curl -o ${filename} "${url}" && sleep 1\n`;
     
     //downloadImageInIframe(url,filename);
@@ -184,7 +184,7 @@ async function get_media(url,filename){
     //link.setAttribute("href", url);
     //link.setAttribute("download", filename);
     //link.click();
-    return new Promise((res, rej) => {res(true)})
+    //return new Promise((res, rej) => {res(true)})
 
 }
 
