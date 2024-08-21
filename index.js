@@ -177,7 +177,8 @@ function downloadImageInIframe(imageUrl, fileName) {
 
 async function get_media(url,filename){
 
-    downloadImageInIframe(url,filename);
+    console.log(`curl -o ${filename} "${url}"`);
+    //downloadImageInIframe(url,filename);
         
     //var link = document.createElement("a");
     //link.setAttribute("href", url);
@@ -267,7 +268,7 @@ async function main(){
             }else if(mm.photo_url){
                 get_media(mm.photo_url,mm.activity_date + (t++) + ".jpg");
             }
-            await new Promise((resolve) => setTimeout(resolve,1000));
+            //await new Promise((resolve) => setTimeout(resolve,1000));
             
             document.querySelector("#marquee").innerText = (`downloading ${i.toLocaleString()} of ${multiMedia.length.toLocaleString()}`)
         }
