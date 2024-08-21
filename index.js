@@ -262,11 +262,11 @@ async function main(){
         for(const mm of multiMedia){
             i++;
             if(mm.activity_type == "video_activity"){
-                get_media(mm.activiable.video_file_url,mm.activity_date + (t++) + ".mp4");
+                get_media(mm.activiable.video_file_url,mm.activity_date + "-" + (t++) + ".mp4");
             } else if(mm.activity_type == "photo_activity") {
-                get_media(mm.activiable.main_url,mm.activity_date + (t++) + ".jpg");
+                get_media(mm.activiable.main_url,mm.activity_date + "-" + (t++) + ".jpg");
             }else if(mm.photo_url){
-                get_media(mm.photo_url,mm.activity_date + (t++) + ".jpg");
+                get_media(mm.photo_url,mm.activity_date + "-" + (t++) + ".jpg");
             }
             //await new Promise((resolve) => setTimeout(resolve,1000));
             
