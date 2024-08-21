@@ -135,12 +135,13 @@ function extractChildData(childId, page, date_from, date_to, data){
 //
 async function get_media(url,filename){
 
-
+    
+        
     var link = document.createElement("a");
     link.setAttribute("href", url);
+    link.setAttribute("target","_blank");
     link.setAttribute("download", filename);
     link.click();
-
     return new Promise((res, rej) => {res(true)})
 
 }
@@ -225,7 +226,7 @@ async function main(){
             }else if(mm.photo_url){
                 get_media(mm.photo_url,mm.activity_date + (t++) + ".jpg");
             }
-            await new Promise((resolve) => setTimeout(resolve,2000));
+            await new Promise((resolve) => setTimeout(resolve,1000));
             
             document.querySelector("#marquee").innerText = (`downloading ${i.toLocaleString()} of ${multiMedia.length.toLocaleString()}`)
         }
