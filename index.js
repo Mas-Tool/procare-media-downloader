@@ -272,8 +272,8 @@ async function main(){
             //await new Promise((resolve) => setTimeout(resolve,1000));
             
             document.querySelector("#marquee").innerText = (`downloading ${i.toLocaleString()} of ${multiMedia.length.toLocaleString()}`)
-            console.log(result);
         }
+        console.log(result);
 
 
 }
