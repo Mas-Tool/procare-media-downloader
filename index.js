@@ -195,7 +195,7 @@ async function get_media(url,filename){
 //
 // ///////////////////////////////////
 async function main(){
-        
+    debugger;    
         
     start_date = document.querySelector("#start_date").value;
     
