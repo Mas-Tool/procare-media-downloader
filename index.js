@@ -176,8 +176,8 @@ function downloadImageInIframe(imageUrl, fileName) {
 }
 
 async function get_media(url,filename){
-
-    console.log(`curl -o ${filename} "${url}" && sleep 1`);
+    return `curl -o ${filename} "${url}" && sleep 1\n`;
+    
     //downloadImageInIframe(url,filename);
         
     //var link = document.createElement("a");
@@ -259,14 +259,15 @@ async function main(){
         console.log(multiMedia);
         var i = 0;
         var t = 0;
+        let result = "";
         for(const mm of multiMedia){
             i++;
             if(mm.activity_type == "video_activity"){
-                get_media(mm.activiable.video_file_url,mm.activity_date + "-" + (t++) + ".mp4");
+                result+=get_media(mm.activiable.video_file_url,mm.activity_date + "-" + (t++) + ".mp4");
             } else if(mm.activity_type == "photo_activity") {
-                get_media(mm.activiable.main_url,mm.activity_date + "-" + (t++) + ".jpg");
+                result+=get_media(mm.activiable.main_url,mm.activity_date + "-" + (t++) + ".jpg");
             }else if(mm.photo_url){
-                get_media(mm.photo_url,mm.activity_date + "-" + (t++) + ".jpg");
+                result+=get_media(mm.photo_url,mm.activity_date + "-" + (t++) + ".jpg");
             }
             //await new Promise((resolve) => setTimeout(resolve,1000));
             
