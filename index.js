@@ -164,8 +164,11 @@ function downloadImageInIframe(imageUrl, fileName) {
         // Trigger a click event on the <a> element to start the download
         a.click();
 
+        setTimeout(()=>{
+            document.body.removeChild(iframe);
+        },2000)
         // Remove the iframe from the document after the download is triggered
-        document.body.removeChild(iframe);
+        
     };
 
     // Set a blank document to trigger the iframe load event
